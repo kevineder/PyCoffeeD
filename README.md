@@ -14,5 +14,3 @@ Installation
 Run It
 ------
 	sudo python web.py
-
-

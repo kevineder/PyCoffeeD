@@ -3,7 +3,7 @@ PyCoffeeD
 
 This is a fork of the CoffeeD project, rewritten in Python. Like the original CoffeeD, it measures the number of cups of coffee remaining in a coffee pot, using a usb scale.
 
-This was fork was created in tandem with the original CoffeeD author, [morria](https://github.com/morria).
+This was fork was facilitated by the original CoffeeD author, [morria](https://github.com/morria).
 
 Installation
 ------------

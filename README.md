@@ -7,8 +7,10 @@ Installation
 ------------
 * Clone the repo.
 * Get [pyusb]("https://github.com/walac/pyusb"): 
+
 		sudo pip install pyusb
 * Get [Flask]("https://github.com/mitsuhiko/flask"):
+
 		sudo pip install flask
 
 Run It

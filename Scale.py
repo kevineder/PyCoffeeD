@@ -16,6 +16,9 @@ class Scale:
                 self.device = usb.core.find(idVendor=vendor_id,
                                idProduct=product_id)
 
+								#Get rid of kernal driver
+								self.device.detach_kernel_driver(interface)
+
                 # use the first/default configuration
                 self.device.set_configuration()
                 # first endpoint

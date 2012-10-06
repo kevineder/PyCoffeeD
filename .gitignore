@@ -1,2 +1,5 @@
 *.swp
 *.swo
+*.pyc
+twitter_credentials
+tmp_storage.db

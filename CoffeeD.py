@@ -2,6 +2,7 @@ from flask import Flask
 from flask import json
 from flask import Response
 from flask import send_from_directory
+from flask import render_template
 import os
 
 import sys
@@ -15,6 +16,9 @@ scale = None
 app = Flask(__name__)
 
 @app.route("/")
+def index():
+	return render_template('index.html', stats=getStats())
+
 @app.route("/grams")
 def grams():
 	js = json.dumps(scale.readGrams())
@@ -45,6 +49,14 @@ def caffeine():
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
+@app.route("/stats")
+def stats():
+	stats = getStats()
+
+	js = json.dumps(stats)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
 @app.route('/favicon.ico')
 def favicon():
 	return send_from_directory(os.path.join(app.root_path, 'static'),
@@ -54,6 +66,16 @@ def favicon():
 def error418():
 	return "I am a tea pot"
 
+def getStats():
+	return {
+		'grams' : scale.readGrams(), 
+		'ounces' : scale.readOunces(), 
+		'cups' : scale.readOunces()/8.0,
+		'servings' : scale.readOunces()/6.0,
+		'caffeine' : str(round((scale.readOunces()/8.5)*49,2)) + "mg"
+	}
+
 if __name__ == "__main__":
 	scale = Scale(VENDOR_ID, PRODUCT_ID)
+	app.debug = True
 	app.run(host='0.0.0.0')

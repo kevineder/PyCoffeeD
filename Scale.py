@@ -1,9 +1,6 @@
 import usb.core
 import usb.util
 
-VENDOR_ID = 0x6096
-PRODUCT_ID = 0x0158
-
 class Scale:
 	device = None
 	endpoint = None
@@ -21,7 +18,6 @@ class Scale:
 			self.device.detach_kernel_driver(self.INTERFACE)
 		except usb.core.USBError:
 			print "USBError when detaching kernel driver. It's probably already detached. "
-
 
 		# use the first/default configuration
 		self.device.set_configuration()

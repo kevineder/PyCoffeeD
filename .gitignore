@@ -1,5 +1,6 @@
 *.swp
 *.swo
 *.pyc
-twitter_credentials
-tmp_storage.db
+stats-job/twitter_credentials
+stats-job/tmp_storage.db
+config.ini

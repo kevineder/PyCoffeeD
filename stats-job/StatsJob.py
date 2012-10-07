@@ -10,7 +10,7 @@ from twitter import *
 #Read in the url from the config file.
 sys.path.append(sys.path[0]) 
 Config = ConfigParser.ConfigParser()
-Config.read("config.ini")
+Config.read("../config.ini")
 
 #Checking previously tweeted number of cups.
 database = shelve.open("tmp_storage") 
@@ -43,10 +43,11 @@ if (abs(cups_current - cups_old) > 1):
 
     consumer_key = Config.get("Twitter", "consumer_key")
     consumer_secret = Config.get("Twitter", "consumer_secret")
+    app_name = Config.get("Twitter", "app_name")
 
     twitter_creds = os.path.expanduser('./twitter_credentials')
     if not os.path.exists(twitter_creds):
-        oauth_dance("Labs Coffee", consumer_key, consumer_secret,
+        oauth_dance(app_name, consumer_key, consumer_secret,
                     twitter_creds)
 
     oauth_token, oauth_secret = read_token_file(twitter_creds)

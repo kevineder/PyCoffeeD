@@ -3,11 +3,19 @@ from flask import json
 from flask import Response
 from flask import send_from_directory
 from flask import render_template
+import ConfigParser
 import os
-
 import sys
 sys.path.append(sys.path[0]) 
 from Scale import Scale
+
+sys.path.append(sys.path[0]) 
+Config = ConfigParser.ConfigParser()
+Config.read("./config.ini")
+
+GRAPHITE_URL = Config.get("Graphite", "url")
+BUCKET = Config.get("Graphite", "bucket")
+SCREEN_NAME = Config.get("Twitter", "screen_name")
 
 VENDOR_ID = 0x6096
 PRODUCT_ID = 0x0158
@@ -17,7 +25,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-	return render_template('index.html', stats=getStats())
+	return render_template('index.html', stats=getStats(), config=getConfig())
 
 @app.route("/grams")
 def grams():
@@ -63,8 +71,9 @@ def favicon():
 		'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.errorhandler(418)
+@app.route('/418')
 def error418():
-	return "I am a tea pot"
+	return "I'm a tea pot", 418
 
 def getStats():
 	return {
@@ -73,6 +82,13 @@ def getStats():
 		'cups' : scale.readOunces()/8.0,
 		'servings' : scale.readOunces()/6.0,
 		'caffeine' : str(round((scale.readOunces()/8.5)*49,2)) + "mg"
+	}
+
+def getConfig():
+	return {
+		'url' : GRAPHITE_URL, 
+		'bucket' : BUCKET, 
+		'screen_name' : SCREEN_NAME
 	}
 
 if __name__ == "__main__":

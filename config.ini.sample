@@ -1,0 +1,16 @@
+[StatsD]
+url: tools.calendr.labs.hugeinc.com
+port: 8125
+
+[Graphite]
+url: http://graphite.web.interface.com
+bucket: stats.gauges.coffee.cups
+
+[Twitter]
+consumer_key: xxxxxxxxxxx
+consumer_secret: xxxxxxxxxxxxx
+app_name: "Your App"
+screen_name: YourTwitterHandle
+
+[PyCoffeeD]
+url: http://192.168.1.101:5000

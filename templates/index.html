@@ -7,9 +7,15 @@
   </head>
   <body>
     <div class="hero-unit">
-      <img id="graph" src="http://placekitten.com/g/800/325"/>
+      <img id="graph" src="{{config.url}}/render/?width=612&height=350&_salt=1349559210.774&target={{config.bucket}}&yMax=10.9&from=-2hour&yMin=0&hideGrid=true&hideAxes=false&graphOnly=false&title=Cups&hideLegend=true&tz=America/New_York&lineWidth=2&bgcolor=white&fgcolor=black"/>
       <h1>There are {{stats.cups}} cups of coffee left.</h1>
-      <h2>(That's {{stats.ounces}} ounces, {{stats.grams}} grams, and {{stats.caffeine}} of caffeine.)
+      <h2>(That's ~{{stats.caffeine}} of caffeine.)
+      <div>
+        <a href="https://twitter.com/{{config.screen_name}}" class="twitter-follow-button" data-show-count="false">Follow @hugelabscoffee</a>
+        <iframe src="http://ghbtns.com/github-btn.html?user=kevineder&repo=PyCoffeeD&type=fork"
+  allowtransparency="true" frameborder="0" scrolling="0" width="53px" height="20px"></iframe>
+      </div>
     </div>
   </body>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </html>

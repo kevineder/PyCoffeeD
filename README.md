@@ -11,9 +11,9 @@ Installation
 ------------
 * Clone the repo.
 * Install the dependencies
-				sudo pip install -r ./requirements.txt
+				`sudo pip install -r ./requirements.txt`
 * Update CoffeeD.py with the vendor / product ID of your USB scale. Find this info using:
-				sudo lsusb -v
+				`sudo lsusb -v`
 * Copy config.ini.sample to config.ini, and update it with your Twitter info, url to your StatsD server, and the url to your webapp.
 
 Run the web app
@@ -23,6 +23,6 @@ Run the web app
 Stats job
 --------
 * A seperate script can be executed to keep your StatsD server and Twitter handle up-to-date. You'll need to kickoff the job once manually to validatewith Twitter:
-				python stats-job/StatsJob.py
+				`python stats-job/StatsJob.py`
 * After that the first run a cron job can kick it off:
-				* * * * *  cd /home/pi/PyCoffeeD/stats-job/; /usr/bin/python /project/root/dir/stats-job/StatsJob.py > /project/root/dir/stats-job/log.txt
+				`* * * * *  cd /home/pi/PyCoffeeD/stats-job/; /usr/bin/python /project/root/dir/stats-job/StatsJob.py > /project/root/dir/stats-job/log.txt`

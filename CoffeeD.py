@@ -17,10 +17,6 @@ sys.path.append(sys.path[0])
 Config = ConfigParser.ConfigParser()
 Config.read("./config.ini")
 
-GRAPHITE_URL = Config.get("Graphite", "url")
-BUCKET = Config.get("Graphite", "bucket")
-SCREEN_NAME = Config.get("Twitter", "screen_name")
-
 VENDOR_ID = 0x6096
 PRODUCT_ID = 0x0158
 
@@ -73,29 +69,29 @@ def crossdomain(origin=None, methods=None, headers=None,
 
 @app.route("/")
 def index():
-	return render_template('index.html', stats=getStats(), config=getConfig())
+	return render('index.html')
 
 @app.route("/grams")
 def grams():
-	js = json.dumps(scale.readGrams())
+	js = json.dumps(round(scale.readGrams(),2))
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
 @app.route("/ounces")
 def ounces():
-	js = json.dumps(scale.readOunces())
+	js = json.dumps(round(scale.readOunces(),2))
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
 @app.route("/cups")
 def cups():
-	js = json.dumps(scale.readOunces()/8.0)
+	js = json.dumps(round(scale.readOunces()/8.0,2))
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
 @app.route("/servings")
 def servings():
-	js = json.dumps(scale.readOunces()/6.0)
+	js = json.dumps(round(scale.readOunces()/6.0,2))
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
@@ -126,19 +122,13 @@ def error418():
 
 def getStats():
 	return {
-		'grams' : scale.readGrams(), 
-		'ounces' : scale.readOunces(), 
-		'cups' : scale.readOunces()/8.0,
-		'servings' : scale.readOunces()/6.0,
+		'grams' : round(scale.readGrams(),2), 
+		'ounces' : round(scale.readOunces(),2), 
+		'cups' : round(scale.readOunces()/8.0,2),
+		'servings' : round(scale.readOunces()/6.0,2),
 		'caffeine' : str(round((scale.readOunces()/8.5)*49,2)) + "mg"
 	}
 
-def getConfig():
-	return {
-		'url' : GRAPHITE_URL, 
-		'bucket' : BUCKET, 
-		'screen_name' : SCREEN_NAME
-	}
 
 if __name__ == "__main__":
 	scale = Scale(VENDOR_ID, PRODUCT_ID)

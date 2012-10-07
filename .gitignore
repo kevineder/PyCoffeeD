@@ -3,5 +3,6 @@
 *.pyc
 stats-job/twitter_credentials
 stats-job/tmp_storage.db
+static/config.js
 config.ini
 .com.apple.timemachine.supported

@@ -1,0 +1,5 @@
+var config = {
+  "graphite-url" : "http://graphite.example.com:8000",
+  "bucket" : "stats.gauges.coffee.cups",
+  "pycoffeed-url" : "http://pycoffeed.server.example.com:5000",
+};

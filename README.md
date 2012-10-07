@@ -22,7 +22,7 @@ Run the web app
 
 Stats job
 --------
-* A seperate script can be executed to keep your StatsD server and Twitter handle up-to-date. You'll need to kickoff the job once manually to validatewith Twitter:
+* A seperate script can be executed to keep your StatsD server and Twitter handle up-to-date. You'll need to kickoff the job once manually to validate with Twitter:
 				`python stats-job/StatsJob.py`
 * After that the first run a cron job can kick it off:
 				`* * * * *  /usr/bin/python /project/dir/stats-job/StatsJob.py > /project/dir/stats-job/log.txt`

@@ -1,16 +1,11 @@
 [StatsD]
-url: your.statsd.server.example.com
+url: statsd.server.example.com
 port: 8125
 
-[Graphite]
-url: http://graphite.web.interface.com
-bucket: stats.gauges.coffee.cups
-
 [Twitter]
-consumer_key: xxxxxxxxxxx
-consumer_secret: xxxxxxxxxxxxx
-app_name: "Your App"
-screen_name: YourTwitterHandle
+consumer_key: XXXXXXXXXXXXXX
+consumer_secret: XXXXXXXXXXXXXXXXXXXXXXX
+app_name: "Coffee Machine"
 
 [PyCoffeeD]
 url: http://192.168.1.101:5000

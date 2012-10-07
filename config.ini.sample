@@ -1,5 +1,5 @@
 [StatsD]
-url: tools.calendr.labs.hugeinc.com
+url: your.statsd.server.example.com
 port: 8125
 
 [Graphite]

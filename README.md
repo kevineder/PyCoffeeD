@@ -1,7 +1,7 @@
 PyCoffeeD
 =========
 
-PyCoffeeD is a fork of the CoffeeD project, rewritten in Python. Like the original CoffeeD, it measures the number of cups of coffee remaining in a coffee pot, using a USB scale and [StatsD](https://github.com/etsy/statsd). It can also tweet. 
+PyCoffeeD is a fork of the CoffeeD project, rewritten in Python. Like the original CoffeeD, it measures the number of cups of coffee remaining in a coffee pot using a USB scale and [StatsD](https://github.com/etsy/statsd). It can also tweet. 
 
 This fork was created in tandem with the original CoffeeD author, [morria](https://github.com/morria).
 

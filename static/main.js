@@ -11,7 +11,7 @@ function updateStats() {
     if (json && json.hasOwnProperty('cups')) {
 
       $(".hero-unit h1").text("There are " + json['cups'] + " cups of coffee left.");
-      $(".hero-unit h2").text("(That's " + json['caffeine'] + " of caffeine.)");
+      $(".hero-unit h2").text("(That's ~" + json['caffeine'] + " of caffeine.)");
       $("#blocker").hide();
     }
     else {

@@ -69,7 +69,7 @@ def crossdomain(origin=None, methods=None, headers=None,
 
 @app.route("/")
 def index():
-	return render('index.html')
+	return render_template('index.html')
 
 @app.route("/grams")
 def grams():
@@ -133,4 +133,5 @@ def getStats():
 if __name__ == "__main__":
 	scale = Scale(VENDOR_ID, PRODUCT_ID)
 	app.debug = True
+	app.template_folder="./"
 	app.run(host='0.0.0.0')

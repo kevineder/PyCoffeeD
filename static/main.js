@@ -33,7 +33,7 @@ function updateStats() {
       servings = Math.round(100 * cups)/100;
       var caffeine = Math.round(100 * ((servings * 6)/8.5) * 49)/100;
 
-      $(".hero-unit h1").text("There are " + cups + " cups of coffee left.");
+      $(".hero-unit h1").text("There are " + servings + " cups of coffee left.");
       $(".hero-unit h2").text("(That's ~" + caffeine + "mg of caffeine.)");
       $("#blocker").hide();
     }

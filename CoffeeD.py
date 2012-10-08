@@ -85,7 +85,7 @@ def ounces():
 
 @app.route("/cups")
 def cups():
-	js = json.dumps(round(scale.readOunces()/8.0,2))
+	js = json.dumps(round(scale.readOunces()/6.0,2))
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 

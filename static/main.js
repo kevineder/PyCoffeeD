@@ -24,14 +24,14 @@ function updateStats() {
     if (json && json.hasOwnProperty('datapoints') && json.datapoints.length > 0) {
 
       //For some reason graphite occasionally returns null for the most recent statistic.
-      var servings = json['datapoints'][json.datapoints.length-1][0];
+      var cups = json['datapoints'][json.datapoints.length-1][0];
 
-      if (!servings) {
-        servings = json['datapoints'][json.datapoints.length-2][0];
+      if (!cups) {
+        cups = json['datapoints'][json.datapoints.length-2][0];
       }
 
       servings = Math.round(100 * cups)/100;
-      var caffeine = Math.round(100 * ((servings * 6)/8.5) * 49)/100;
+      var caffeine = Math.round(100 * ((cups * 8)/8.5) * 49)/100;
 
       $(".hero-unit h1").text("There are " + servings + " cups of coffee left.");
       $(".hero-unit h2").text("(That's ~" + caffeine + "mg of caffeine.)");

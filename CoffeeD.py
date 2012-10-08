@@ -132,6 +132,6 @@ def getStats():
 
 if __name__ == "__main__":
 	scale = Scale(VENDOR_ID, PRODUCT_ID)
-	app.debug = True
+	app.debug = False
 	app.template_folder="./"
-	app.run(host='0.0.0.0')
+	app.run(host='0.0.0.0', port=80)

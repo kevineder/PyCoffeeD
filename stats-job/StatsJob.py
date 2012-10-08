@@ -25,7 +25,7 @@ print "Previous number of cups was " + str(cups_old)
 
 #Get current number of cups.
 service = Config.get("PyCoffeeD", "url")
-r = requests.get(service + "/cups")
+r = requests.get(service + "/servings")
 assert r.status_code < 400, "Request to PyCoffeeD server failed."
 cups_current = float(r.text)
 print "Current number of cups is " + str(cups_current)

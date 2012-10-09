@@ -91,7 +91,7 @@ def cups():
 
 @app.route("/servings")
 def servings():
-	js = json.dumps(round(scale.readOunces()/5.0,2))
+	js = json.dumps(round(scale.readOunces()/4.5,2))
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
@@ -125,7 +125,7 @@ def getStats():
 		'grams' : round(scale.readGrams(),2), 
 		'ounces' : round(scale.readOunces(),2), 
 		'cups' : round(scale.readOunces()/8.0,2),
-		'servings' : round(scale.readOunces()/5.0,2),
+		'servings' : round(scale.readOunces()/4.5,2),
 		'caffeine' : str(round((scale.readOunces()/8.5)*49,2)) + "mg"
 	}
 
